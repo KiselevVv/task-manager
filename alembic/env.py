@@ -1,10 +1,11 @@
 import asyncio
+import os
 from logging.config import fileConfig
 
+from dotenv import load_dotenv
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from alembic import context
-from app.database import DATABASE_URL
 from app.models.task import Base
 
 config = context.config
@@ -13,6 +14,10 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 target_metadata = Base.metadata
+
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 
 def run_migrations_offline() -> None:

@@ -166,5 +166,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-/alembic/versions/
 /mydb.db
