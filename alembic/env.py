@@ -18,7 +18,7 @@ target_metadata = Base.metadata
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-
+config.set_main_option("sqlalchemy.url", DATABASE_URL)
 
 def run_migrations_offline() -> None:
     """Запуск миграций в оффлайн-режиме."""
